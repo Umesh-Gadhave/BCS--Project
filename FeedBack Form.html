@@ -1,0 +1,123 @@
+<HEAD>
+
+
+<script language="javascript">
+function check()
+{
+var c=0;
+names=document.f1.name.value;
+mail=document.f1.email.value;
+mob=document.f1.PHNO.value;
+comm=document.f1.comments.value;
+var emailpat = /^([a-zA-Z0-9])+([\.a-zA-Z0-9_-])*@([a-zA-Z0-9])+([\.a-zA-Z0-9_-]+)+$/;
+
+if(names=="")
+{alert("Enter  Name");
+return ;}
+else
+{
+if(!isNaN(names))
+{alert("Enter only alphabets for Name"); 
+return;}
+}
+
+
+if(!emailpat.test(mail))
+ {
+  alert("Please enter a valid email address");
+  return(false);
+ } 
+
+
+if(mob==""||mob.length<10)
+{alert("Please Enter Valid Mobile Number"); 
+return; }
+else
+{
+if(isNaN(mob))
+{alert("Please Enter Numeric Value for Telephone No."); 
+return; }
+}
+if(comm=="")
+{alert("Enter Value for Comments"); 
+return; } 
+}
+
+function conn()
+{
+
+
+
+       var cn = new ActiveXObject("ADODB.Connection"); 
+
+          var strConn = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source =D:/PRJ/shh.mdb";
+
+        var rs = new ActiveXObject("ADODB.Recordset"); 
+
+         var SQL = "INSERT INTO Table1(name,email,mob,comm)"+ " VALUES ( '"+ names +"','"+ mail +"','"+ mob +"','"+ comm +"')"; 
+
+cn.Open(strConn); 
+rs.Open(SQL, cn); 
+alert("Thanks for your feedback");
+
+rs.Close(); 
+cn.Close(); 
+}
+
+</script>
+
+<BODY background="imgs/back1.jpg" >
+<CENTER><img src="imgs/Presentation1.jpg" width=100% height=200>
+</CENTER>
+<center>
+<form method=post  name="f1" onsubmit="conn()">
+<input type=hidden name=to value="you@your-website-address-here.com">
+<input type=hidden name=subject value="Feedback Form">
+<pre>
+<P><marquee bgcolor="999999" behavior="alternate" style="font-family: Times New Roman; font-size: 20pt; color:
+ 0000FF; font-style: italic; font-weight: bold"> Take  Feedback Here!</marquee></p>
+
+<b><center><u><font size="6" font color="black"><b>Feedback Form</b></u>
+<img src="imgs/welcome.gif" width="300" height="150">
+
+ 
+
+</b></a>
+
+<td width="210"><div align="center" ><a href="feedback1.html"><imgsrc="feedback.jpg"></div></td></a>
+</tr>
+</table>
+Your Name:-	<input type=text name="name">
+
+Your Email:-	<input type=text name="email">
+
+Mobile NO:-	<input type="text" name="PHNO" maxlength="10" >
+
+Comments?
+
+<textarea name="comments" wrap="virtual" rows="7" cols="45"></Textarea>
+
+<TD><input type=submit value="Submit!" onmouseover="check()"> <input type=reset value="Clear" ></TD>
+
+
+
+</pre>
+<tr>
+<img src="imgs/thank u.gif"width="180" height="200">
+</tr>
+
+<tr>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="black" font size="4" font face="Times New Roman">
+<center><b>Copyright@Kokan Tourism 2017</b>
+</center></b></font>
+</tr>
+
+
+</BODY>
+</form>
+<a href="#"><img src="https://counter7.fcs.ovh/private/freecounterstat.php?c=2546c76b5da946739afb0e0ca02bdc93" border="0" title="free counter" alt="Total Counts"></a>
+        
+
+
+</html> 
